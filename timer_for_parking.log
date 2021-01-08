@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main ()
+{
+ int stundas = 0;
+ int maxstundas = 24;
+ int mincena = 2;
+ int maxcena = 10;
+ double galacena = 0;
+ double stundasc = 0.50;
+ 
+     cout << "Ievadiet cik stundas stāvēja auto stāvvietā\n\n";
+     cin >> stundas;
+    
+    if ( stundas <= 3){
+        
+        cout << "Jums ir jāmaksā " << mincena << "Ls!\n\n";
+    }
+    else if (stundas > 3 && stundas <=16){
+        galacena = stundas * stundasc + mincena;
+        cout << "Jums ir jāmaksā " << galacena << "Ls!\n\n";
+    }
+    else
+    {
+        cout << "Jums ir jāmaksā " << maxcena << "Ls!\n\n";
+    }
+    
+ return 0;
+}

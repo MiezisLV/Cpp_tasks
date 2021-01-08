@@ -1,0 +1,52 @@
+#include <iostream>
+#include <algorithm>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+  string pal;
+    //Skaitļu diapazons kādā tiek meklēti skaitļi
+  for (int i = 100000; i <= 1000000; ++i ) {
+    stringstream ss;
+    ss << i; // Ievieto iegūto string ss
+    pal = ss.str(); // Pārveido skaitli par string
+
+    string RevStr = pal;// Pārveido iegūto skaitli reversā
+    reverse( RevStr.begin(), RevStr.end() );
+        //Ja iegūtais skaitlis ir vienāds ar palindromu, izvadīt to
+    if ( RevStr == pal ) {
+      cout << pal << endl;
+    }
+  }
+return 0;
+}
+//Udevums a
+/*int main(){
+    int n, num, skait, rev = 0;
+
+     cout << "Ievadīt pozitīvu skaitli ";
+     cin >> num;
+
+     n = num;
+
+     do
+     {
+         //Atdala pēdējo ievadīto skaitli
+         skait = num % 10;
+         //Ievieto pa vienam skaitlim rev int
+         rev = (rev * 10) + skait;
+         num = num / 10;
+         //Turpina fukciju kamēr num nav vienāds ar 0
+     } while (num != 0);
+
+     cout << " Skaitlis reversā ir: " << rev << endl;
+        //Salīdzina sākuma skaitli ar skaitli reversā
+     if (n == rev)
+         cout << " Skaitlis ir palindroms ";
+     else
+         cout << " Skaitlis nav palindroms ";
+
+    return 0;
+}*/

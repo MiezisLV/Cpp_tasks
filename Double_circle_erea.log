@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+double const PI=3.14159;
+double circle_area(double R)
+{
+	return PI*R*R;
+}
+int main ()
+{
+double R1, R2 = 0;
+double circle_areaR = 0;
+
+cout<< "Ievadiet ārējās riņķa līnijas rādiusu\n\n";
+cin >> R1;
+cout<< "Ievadiet iekšējās riņķa līnijas rādiusu\n\n";
+cin>> R2;
+
+circle_areaR = circle_area(R1)-circle_area(R2);
+
+cout<< "Iesvrītrotais laukums ir-  " << circle_areaR +circle_area(R2/2)*2;
+}

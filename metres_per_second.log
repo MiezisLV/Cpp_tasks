@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// int main() {
+//     double sekh = 3.6;
+//     int Vkmh = 0;
+//     int vms = 0;
+    
+//     cout << "Ievadiet ar cik km/h braucat?\n\n";
+//      cin >> Vkmh;
+     
+//     vms = Vkmh / sekh;
+    
+//     cout << "Jūs braucat ar- "<< vms <<" metriem sekundē\n\n";
+    
+//     return 0;
+// }
+
+    int main (){
+        double sekh = 3.6;
+        double meet_time = 0;
+        double kmh1 = 0;
+        double kmh2 = 0;
+        double km = 0;
+        double kmh3 = 0;
+        
+        cout << "Ievadiet ar cik km/h brauc mašīna 1?\n\n";
+         cin >> kmh1;
+         
+         cout << "Ievadiet ar cik km/h brauc mašīna 2?\n\n";
+         cin >> kmh2;
+         
+         cout << "Cik km ir starp šīm mašīnām?\n\n";
+         cin >> km;
+         
+         kmh3 = kmh1 + kmh2;
+         
+         meet_time = km / kmh3;
+         
+         cout << "Mašīnas satiksies pēc- "<< meet_time <<  "stundām\n\n";
+         
+         return 0;
+    }

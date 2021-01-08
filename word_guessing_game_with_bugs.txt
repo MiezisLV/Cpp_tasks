@@ -1,0 +1,87 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+
+
+using namespace std;
+
+string words;
+
+int main()
+{
+    srand ( time(NULL) );
+    
+    char* NameArray[] = {"kabelis", "sviests", "kaktuss", "debesis", "zobrats", "kuleris", "dekstop", "hantele", "terjers", "caurums","lavanda", "strauss", "persiks", "panelis", "tablete", "piekabe", "gliemis", "sfinkss", "uzvalks", "lapsene"};
+    
+    char board[] = {'.', '.', '.', '.', '.', '.', '.'};
+    
+    char pastGuesses[17] = {};
+    
+    char userInput;
+    int wrongGuesses = 0;
+    int maxGuesses = 10;
+    int overallGuesses = 0;
+    int endgame = 0;
+    
+    bool solidGuess;
+    bool match = false;
+    
+    int RandName = rand() % 10;
+    
+    words = NameArray[RandName];
+    
+    cout << words << endl;
+    
+    cout << "Sveiks 'Hangman' spēlē!" << endl;
+    cout << board << endl;
+    
+    while(wrongGuesses < maxGuesses){
+    cout << "Lūdzu uzmini vārda burtu"<< endl;
+    cin >> userInput;
+    // userInput = getch();
+    if(endgame == userInput){
+        return 0;
+    }
+    
+    userInput = tolower(userInput);
+    
+    for (int i = 0; i <= sizeof(pastGuesses) - 1; i++){
+        
+        solidGuess = true;
+        if (userInput == pastGuesses[i]){
+            cout << "Jūs jau izmantojāt šo burtu, mēģiniet vēlreiz!\n" << endl;
+            solidGuess = false;
+            break;
+        }
+    }
+    
+    if (solidGuess){
+        
+        // pastGuesses[overallGuesses] = userInput;
+        overallGuesses = userInput;
+        overallGuesses++;
+        for (int j = 0; j <= sizeof(words) -1; j++){
+            
+            if(userInput == words[j]){
+                
+                board[j] = words[j];
+                match = true;
+            }
+        }
+        
+        
+    
+         if (match){
+        cout << "Tieši tā! Tu uzminēji burtu!\n" << endl;
+        cout << board << endl;
+         }else{
+        wrongGuesses++;
+        cout << "Diemžēl Tu neuzminēji burtu, mēģini vēlreiz!\n" << endl;
+        cout << "Tev vēl ir- " << maxGuesses - wrongGuesses << " Iespējas uzminēt vārdu!\n" << endl;
+        }
+        
+    }
+
+}
+    return 0;
+}

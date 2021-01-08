@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	int num, guess, tries = 0;
+	int maxguess = 9;
+	num = rand() % 100 + 1; // Random numura generators
+	cout << "Spele- uzmini so skaitli\n\n";
+
+	do
+	{
+		cout << "Uzmini skaitli starp 1 un 100: ";
+		cin >> guess;
+		tries++;
+
+		if (guess > num){
+			cout << "Parak augsts skaitlis!!\n\n";
+		}
+		else if (guess < num){
+			cout << "Parak zems skaitlis!\n\n";
+		}
+		else if (guess == num){
+			cout << "\nPareizi! Uzmineji ar " << tries << " minesanas reizem!\n";
+			return 0;
+		}
+	} while (guess != num && maxguess > tries);
+	
+	cout << "Jus zaudejat. Pareiza atbilde ir : "<< num << endl;
+
+	return 0;
+}

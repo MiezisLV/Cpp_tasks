@@ -1,0 +1,370 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+char NxN[3][3] = {'1', '2', '3', '4', '5', '6', '7', '8','9'};
+char speletajs = 'X';
+char pc = 'O';
+int n;
+
+void laukums(){
+    
+    for(int i = 0; i < 3; i++){
+        for(int j = 0; j < 3; j++){
+            cout << NxN[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void laukums_restart(){
+    for(int i; i<10; i++)
+    NxN[0][0]= {'1'};
+    NxN[0][1]= {'2'};
+    NxN[0][2]= {'3'};
+    NxN[1][0]= {'4'};
+    NxN[1][1]= {'5'};
+    NxN[1][2]= {'6'};
+    NxN[2][0]= {'7'};
+    NxN[2][1]= {'8'};
+    NxN[2][2]= {'9'};
+}
+
+void ievade(){
+   // Pirmā spēlētāja ievade
+   // Pārbauda vai lauciņš nav jau aizņemts
+    int a;
+    cout << "Ir kārta iet " << speletajs<< "- Izvēlies nākamā gājiena lauciņu:";
+    cin >> a;
+    
+    if (a == 1){
+       if (NxN [0][0] == '1')
+        NxN[0][0] = speletajs;
+    else{
+        cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();
+    } 
+}
+    
+    else if (a == 2){
+        if (NxN [0][1] == '2')
+        NxN[0][1] = speletajs;
+        else{
+          cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();  
+        }
+        
+    }
+    
+    else if (a == 3){
+        if (NxN [0][2] == '3')
+        NxN[0][2] = speletajs;
+        else{
+          cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();  
+        }
+        
+    }
+    
+    else if (a == 4){
+        if (NxN [1][0] == '4')
+        NxN[1][0] = speletajs;
+        else{
+         cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();   
+        }
+        
+    }
+    
+    else if (a == 5){
+        if (NxN [1][1] == '5')
+        NxN[1][1] = speletajs;
+        else{
+         cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();   
+        }
+        
+    }
+    
+    else if (a == 6){
+        if (NxN [1][2] == '6')
+        NxN[1][2] = speletajs;
+        else{
+         cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();   
+        }
+        
+    }
+    
+    else if (a == 7){
+        if (NxN [2][0] == '7')
+        NxN[2][0] = speletajs;
+        else{
+         cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();   
+        }
+        
+    }
+    
+    else if (a == 8){
+        if (NxN [2][1] == '8')
+        NxN[2][1] = speletajs;
+        else{
+          cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();  
+        }
+        
+    }
+    
+    else if (a == 9){
+        if (NxN [2][2] == '9')
+        NxN[2][2] = speletajs;
+        else{
+          cout << "Attiecīgais lauciņš jau ir aizņemts!" << endl;
+        ievade();  
+        }
+        
+    }
+}
+void speletajs2(){
+    // Norāda kuram spēlētājam ir nākamais gājiens
+    if (speletajs == 'X')
+        speletajs = 'O';
+    else
+        speletajs = 'X';
+}
+void dators(){
+    // Datora funkcija, kas izdomā, kur dators liks 'O' soimbolu
+    int b;
+    b = rand()%9 + 1;
+    if (b == 1){
+      if (NxN[0][0] == '1'){
+        NxN[0][0] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 2){
+      if (NxN[0][1] == '2'){
+        NxN[0][1] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 3){
+      if (NxN[0][2] == '3'){
+        NxN[0][2] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 4){
+      if (NxN[1][0] == '4'){
+        NxN[1][0] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 5){
+      if (NxN[1][1] == '5'){
+        NxN[1][1] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 6){
+      if (NxN[1][2] == '6'){
+        NxN[1][2] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 7){
+      if (NxN[2][0] == '7'){
+        NxN[2][0] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 8){
+      if (NxN[2][1] == '8'){
+        NxN[2][1] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    else if (b == 9){
+      if (NxN[2][2] == '9'){
+        NxN[2][2] = pc;
+        }else{
+            dators();
+        }  
+    }
+    
+    
+}
+char uzvara(){
+    //Pārbauda vai kāds no spēlētājiem ir uzvarējis
+    
+    //Spēlētājs 1
+    
+    //Rindas
+    if (NxN[0][0] == 'X' && NxN[0][1] == 'X' && NxN[0][2] == 'X')
+    return 'X';
+    if (NxN[1][0] == 'X' && NxN[1][1] == 'X' && NxN[1][2] == 'X')
+    return 'X';
+    if (NxN[2][0] == 'X' && NxN[2][1] == 'X' && NxN[2][2] == 'X')
+    return 'X';
+    // Kolonas
+    if (NxN[0][0] == 'X' && NxN[1][0] == 'X' && NxN[2][0] == 'X')
+    return 'X';
+    if (NxN[0][1] == 'X' && NxN[1][1] == 'X' && NxN[2][1] == 'X')
+    return 'X';
+    if (NxN[0][2] == 'X' && NxN[1][2] == 'X' && NxN[2][2] == 'X')
+    return 'X';
+    // Diognāles
+    if (NxN[0][0] == 'X' && NxN[1][1] == 'X' && NxN[2][2] == 'X')
+    return 'X';
+    if (NxN[2][0] == 'X' && NxN[1][1] == 'X' && NxN[0][2] == 'X')
+    return 'X';
+    
+    //Spēlētājs 2
+    
+    if (NxN[0][0] == 'O' && NxN[0][1] == 'O' && NxN[0][2] == 'O')
+    return 'O';
+    if (NxN[1][0] == 'O' && NxN[1][1] == 'O' && NxN[1][2] == 'O')
+    return 'O';
+    if (NxN[2][0] == 'O' && NxN[2][1] == 'O' && NxN[2][2] == 'O')
+    return 'O';
+    // Kollonas
+    if (NxN[0][0] == 'O' && NxN[1][0] == 'O' && NxN[2][0] == 'O')
+    return 'O';
+    if (NxN[0][1] == 'O' && NxN[1][1] == 'O' && NxN[2][1] == 'O')
+    return 'O';
+    if (NxN[0][2] == 'O' && NxN[1][2] == 'O' && NxN[2][2] == 'O')
+    return 'O';
+    // Diognāles
+    if (NxN[0][0] == 'O' && NxN[1][1] == 'O' && NxN[2][2] == 'O')
+    return 'O';
+    if (NxN[2][0] == 'O' && NxN[1][1] == 'O' && NxN[0][2] == 'O')
+    return 'O';
+    
+    return '/';
+}
+int main(){
+cout << "_____________________" << endl;
+cout << "|_Tic_Tac_Toe_spēle_|\n" << endl;
+int player = 0;
+izvele: cout << "Jūs vēlaties spēlēt ar datoru vai ar cilvēku?\n" << endl;
+cout << "Cilvēku- spied 1\n";
+cout << "Datoru- spied 2\n";
+cin >> player;
+    if (player == 1) {
+        int atkal = 1;
+    while(atkal == 1){
+        n = 0;
+    bool cond;
+    laukums();
+    while (1){
+    n++;
+    ievade();
+    laukums();
+    speletajs2();
+    uzvara();
+    if (uzvara() == 'X'){
+        cout << "Uzvarēja spēlētājs ar X simbolu" << endl;
+        break;
+    }
+    else if (uzvara() == 'O'){
+        cout << "Uzvarēja spēlētājs ar O simbolu" << endl;
+        break;
+    }
+    else if (uzvara() == '/' && n == 9){
+        cout << "Neizšķirts!" << endl;
+        break;
+    }
+}
+beigtspeli: cout << "Vai vēlaties spēlēt vēlreiz?" << endl;
+cout << "Jā- Spied 1" << endl;
+cout << "Nē- Spied 2" << endl;
+cin >> atkal;
+if(atkal == 1){
+    laukums_restart();
+    goto izvele;
+}
+else if(atkal == 2){
+cout << "Paldies par spēli, uz drīzu tikšanos!" << endl;
+return 0;
+}
+else{
+cout << "Lūdzu izvēlaties pareizu skaitli!\n";
+goto beigtspeli;
+}
+}
+}
+else if (player == 2){
+    int grutibas_limenis = 0;
+limenis: cout << "Izvēlaties grūtības līmeni spēlei pret datoru\n"<< endl;
+    cout << "Viegls- spied 1\n"<< endl;
+    cout << "Grūts- **Izstrādes procesā**\n"<< endl;
+    cin >> grutibas_limenis;
+    if (grutibas_limenis == 1){
+    int atkal = 1;
+    while(atkal == 1){
+    n = 0;
+    bool cond;
+    laukums();
+    while (1){
+    n++;
+    ievade();
+    laukums();
+    dators();
+    cout << "\n"<< endl;
+    laukums();
+    uzvara();
+    if (uzvara() == 'X'){
+        cout << "Uzvarēja spēlētājs ar X simbolu" << endl;
+        break;
+    }
+    else if (uzvara() == 'O'){
+        cout << "Uzvarēja spēlētājs ar O simbolu" << endl;
+        break;
+    }
+    else if (uzvara() == '/' && n == 9){
+        cout << "Neizšķirts!" << endl;
+        break;
+    }
+}
+cout << "Vai vēlaties spēlēt vēlreiz?" << endl;
+cout << "Jā- Spied 1" << endl;
+cout << "Nē- Spied 2" << endl;
+cin >> atkal;
+if(atkal == 1){
+    laukums_restart();
+    goto izvele;
+}
+else if(atkal == 2){
+cout << "Paldies par spēli, uz drīzu tikšanos!" << endl;
+return 0;
+}
+    }
+}
+    else{
+cout << "Lūdzu izvēlaties pareizu skaitli!\n";
+goto limenis;
+    }
+}
+else{
+cout << "Lūdzu izvēlaties pareizu skaitli!\n";
+goto izvele;
+}
+}
